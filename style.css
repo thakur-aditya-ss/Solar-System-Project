@@ -2266,3 +2266,195 @@ body .panel p {
   font-size: 12px;
   line-height: 20px;
 }
+
+/* Responsive Styles */
+
+@media screen and (max-width: 1100px) {
+  body .solar_systm .planet, body .solar_systm .planet .overlay {
+    transform: scale(0.8);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  
+  body .logo {
+    top: 20px;
+  }
+  
+  body label.menu {
+    left: 20px;
+  }
+  
+  body .panel {
+    width: 40%;
+    right: -40%;
+  }
+
+  body input.read:checked + label + input + .panel {
+    right: 0;
+    width: 50%;
+  }
+  
+  body input.read:checked + label {
+     width: calc(100% - 50%);
+  }
+
+  /* Adjust scale for smaller laptops */
+  body .solar_systm {
+      transform: scale(0.8);
+  }
+  
+  /* Initial scale adjustment for planets to fit better */
+  body .solar_systm .planet {
+    margin-left: -100px; /* shift slightly left to center better with menu */
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  
+  body {
+    overflow: auto; /* Allow scrolling if needed, though we try to avoid it */
+  }
+
+  body .logo {
+    top: 10px;
+    font-size: 10px;
+    z-index: 20;
+  }
+
+  /* Move menu to bottom for mobile */
+  body label.menu {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    top: auto !important; /* Override the calculated top for desktop */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    z-index: 100;
+  }
+  
+  /* Reset specific tops for each planet menu item to flow horizontally or custom stack */
+  body label.menu:nth-of-type(1) { left: 10px; bottom: 10px; }
+  body label.menu:nth-of-type(2) { left: 60px; bottom: 10px; }
+  body label.menu:nth-of-type(3) { left: 110px; bottom: 10px; }
+  body label.menu:nth-of-type(4) { left: 160px; bottom: 10px; }
+  body label.menu:nth-of-type(5) { left: 210px; bottom: 10px; }
+  body label.menu:nth-of-type(6) { left: 260px; bottom: 10px; }
+  body label.menu:nth-of-type(7) { left: 310px; bottom: 10px; }
+  body label.menu:nth-of-type(8) { left: 360px; bottom: 10px; }
+  body label.menu:nth-of-type(9) { left: 410px; bottom: 10px; }
+  
+  /* Just simplified visual for menu on mobile, maybe scrollable container */
+  /* Actually, let's keep it simple. Horizontal scrollbar for menu at bottom */
+  
+  body label.menu {
+      position: absolute;
+      bottom: 20px;
+      top: auto !important;
+      left: auto !important;
+      transform-origin: bottom center;
+  }
+  
+  /* We need a container for the menu really, but since we don't want to change HTML structure too much,
+     let's hack the positioning with calc */
+    
+  body label.menu:nth-of-type(1) { left: calc(50% - 160px); }
+  body label.menu:nth-of-type(2) { left: calc(50% - 120px); }
+  body label.menu:nth-of-type(3) { left: calc(50% - 80px); }
+  body label.menu:nth-of-type(4) { left: calc(50% - 40px); }
+  body label.menu:nth-of-type(5) { left: calc(50%); }
+  body label.menu:nth-of-type(6) { left: calc(50% + 40px); }
+  body label.menu:nth-of-type(7) { left: calc(50% + 80px); }
+  body label.menu:nth-of-type(8) { left: calc(50% + 120px); }
+  body label.menu:nth-of-type(9) { left: calc(50% + 160px); }
+
+  body label.menu .info {
+      display: none; /* Hide text labels on mobile to save space */
+  }
+  
+  body label.menu .preview {
+      width: 30px;
+      height: 30px;
+  }
+  
+  /* Scale down the entire solar system significantly */
+  body .solar_systm {
+    transform: scale(0.4);
+    top: -100px; /* Move up to make space for descriptions */
+  }
+  
+  body .solar_systm .planet {
+    margin-left: 0;
+  }
+  
+  /* Adjust planet descriptions */
+  body .solar_systm .planet_description {
+      width: 90%;
+      left: 5%;
+      top: 50%;
+  }
+
+  body .solar_systm .planet_description h1 {
+      font-size: 24px;
+      letter-spacing: 5px;
+  }
+  
+  body .solar_systm .planet_description p {
+      font-size: 14px;
+      line-height: 1.4;
+  }
+
+  /* Panel improvements for mobile */
+  body input.read:checked + label + input + .panel {
+    width: 100%;
+    right: 0;
+    padding: 20px;
+    z-index: 1000;
+  }
+  
+  body input.read:checked + label {
+      display: none; /* Hide the click-off area, use close button */
+  }
+  
+  body label.closeBig {
+     display: none; /* We don't need this overlay on mobile if panel is full width */
+  }
+  
+  body label.closeBig::after {
+      left: 20px;
+      font-size: 20px;
+  }
+  
+  /* Ensure close button is visible */
+  body label.close {
+      right: 20px;
+      top: 20px;
+      opacity: 1 !important; /* Force visible */
+      color: black;
+      z-index: 1001;
+  }
+}
+
+@media screen and (max-width: 480px) {
+    /* Further adjustments for very small screens */
+   body label.menu {
+       bottom: 10px;
+   }
+   
+   body .solar_systm {
+       transform: scale(0.35);
+       top: -150px;
+   }
+   
+   /* Stack menu items or make them smaller? 
+      Let's just scale them down slightly
+   */
+   body label.menu .preview {
+       transform: scale(0.8);
+   }
+}
